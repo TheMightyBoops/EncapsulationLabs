@@ -38,7 +38,7 @@ public class Employee {
     // (all are called 'magic numbers', which are evil). This makes editing
     // these values easier -- one place to do it.
     private final String REQUIRED_MSG = " is mandatory ";
-    private final String CRLF = "\n"; // carriage return line feed
+    public final String CRLF = "\n"; // carriage return line feed
     
     private String firstName;
     private String lastName;
@@ -70,7 +70,7 @@ public class Employee {
         of encapsulation where we put frequently used code in one place for for
         easy editing later if necessary.
     */
-    private String getFormattedDate() {
+    public String getFormattedDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
         return sdf.format(orientationDate);
     }
@@ -83,9 +83,9 @@ public class Employee {
     */
     public void doFirstTimeOrientation(String cubeId) {
         orientationDate = new Date();
-        meetWithHrForBenefitAndSalryInfo();
-        meetDepartmentStaff();
         reviewDeptPolicies();
+        meetDepartmentStaff();
+        meetWithHrForBenefitAndSalryInfo();
         moveIntoCubicle(cubeId);
     }
     
@@ -234,6 +234,9 @@ public class Employee {
     public void setReportService(EmployeeReportService reportService) {
         this.reportService = reportService;
     }
-    
+
+    public void outputReport() {
+
+    }
 }
 
